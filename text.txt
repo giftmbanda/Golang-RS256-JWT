@@ -1,0 +1,7 @@
+# to generate the rsa keys run the below commands (these keys should be stored on the certs directory)
+
+# generate a private key with the correct length
+openssl genrsa -out jwt-private.pem 3072
+
+# generate corresponding public key
+openssl rsa -in jwt-private.pem -pubout -out jwt-public.pem
