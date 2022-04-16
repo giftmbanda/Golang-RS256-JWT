@@ -20,15 +20,15 @@ type Claims struct {
 }
 
 var (
-	privateKey []byte //openssl genrsa -out jwt-private.pem 3072
-	publicKey  []byte //openssl rsa -in jwt-private.pem -pubout -out jwt-public.pem
+	privateKey []byte //openssl genrsa -out privatekey.pem 3072
+	publicKey  []byte //openssl rsa -in privatekey.pem -pubout -out publickey.pem
 	err        error
 )
 
 func init() {
-	privateKey, err = ioutil.ReadFile("certs/chain.key")
+	privateKey, err = ioutil.ReadFile("certs/privatekey.pem")
 	errLog(err)
-	publicKey, err = ioutil.ReadFile("certs/chain.pem")
+	publicKey, err = ioutil.ReadFile("certs/publickey.pem")
 	errLog(err)
 }
 
